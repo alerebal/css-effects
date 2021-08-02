@@ -1,0 +1,111 @@
+/*
+
+    Navigation
+
+*/
+
+nav
+{
+    /* background: var(--clr-liquid-back); */
+    background: rgb(24, 24, 24);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 3em;
+}
+
+nav ul li
+{
+    list-style: none;
+    text-transform: uppercase;
+    color: var(--clr-liquid-2);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+
+/*//////////////////////////////////////////////////////////////
+
+    Parallax
+
+*/
+section#mountains
+{
+    position: relative;
+    width: 100%;
+    height: 150vh;
+    font-family: 'Style Script', cursive;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section#mountains::before
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to top, #fff, transparent);
+    z-index: 10000;
+}
+
+section img 
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* pointer-events: none; */
+}
+
+section img#man
+{
+    transform-origin: bottom;
+}
+
+#text
+{
+    position: relative;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 12em;
+    top: -0.4em
+}
+
+/*//////////////////////////////////////////////////////
+/////
+
+    About
+
+*/
+.about
+{
+    position: relative;
+    padding: 4em;
+}
+
+.about h2
+{
+    font-size: 3em;
+    margin-bottom: 0.8em;
+    /* color: rgba(35, 150, 200, 0.8); */
+    color: var(--clr-anime-back)
+}
+
+.about p
+{
+    font-size: 1.8em;
+    color: var(--clr-liquid-2);
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Effects</title>
+    <link rel="stylesheet" href="src/css/styles.css"/>
+    <link rel="stylesheet" href="src/css/stylesMountain.css" />
+  </head>
+  <body>
+    <section id="mountains">
+      <img src="src/assets/img/mountains/bg.jpg" id="bg" />
+      <h1 id="text">CSS Effects</h1>
+      <img src="src/assets/img/mountains/man.png" id="man" />
+      <img src="src/assets/img/mountains/clouds_1.png" id="clouds_1" />
+      <img src="src/assets/img/mountains/clouds_2.png" id="clouds_2" />
+      <img src="src/assets/img/mountains/mountain_left.png" id="mountain_left" />
+      <img
+        src="src/assets/img/mountains/mountain_right.png"
+        id="mountain_right"
+      />
+    </section>
+    <div class="about">
+      <h2>My CSS work</h2>
+      <p>In this page I show what I have learned working with CSS.</p>
+      <p>Working and learning CSS is one of the most beautiful things to me.</p>
+      <p>These are some of my favorite effects, not the only ones I know of.</p>
+      <p>
+        Parallax effect, anime background, liquid text, graphics, and 2D to 3D
+        convert images.
+      </p>
+    </div>
+    <nav>
+      <ul>
+        <li onclick="toScroll('mountains')">Parallax</li>
+        <li onclick="toScroll('anime')">Anime Background</li>
+        <li onclick="toScroll('liquid')">Liquid Text</li>
+        <li onclick="toScroll('twoD_to_3D')">2D to 3D</li>
+      </ul>
+    </nav>
+    <section id="anime">
+      <div class="container">
+        <h2>AnimeJs</h2>
+      </div>
+    </section>
+    <section id="liquid">
+      <div class="title">
+        <h1>Liquid</h1>
+        <h1>Liquid</h1>
+        <h1>Liquid</h1>
+        <h1>Liquid</h1>
+      </div>
+      <div class="drops">
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
+        <div class="drop"></div>
+      </div>
+    </section>
+    <section id="twoD_to_3D">
+      <div class="container">
+        <div class="imgBx">
+          <img src="src/assets/img/sea/bicharraco.jpg" style="--i: 2; --j: 0" />
+          <img src="src/assets/img/sea/bicharraco.jpg" style="--i: 1; --j: 1" />
+          <img src="src/assets/img/sea/bicharraco.jpg" style="--i: 0; --j: 2" />
+          <img src="src/assets/img/sea/bicharraco.jpg" style="--i: -1; --j: 3" />
+          <img src="src/assets/img/sea/bicharraco.jpg" style="--i: -2; --j: 4" />
+        </div>
+        <div class="imgBx">
+          <img src="src/assets/img/sea/peces.jpg" style="--i: 2; --j: 0" />
+          <img src="src/assets/img/sea/peces.jpg" style="--i: 1; --j: 1" />
+          <img src="src/assets/img/sea/peces.jpg" style="--i: 0; --j: 2" />
+          <img src="src/assets/img/sea/peces.jpg" style="--i: -1; --j: 3" />
+          <img src="src/assets/img/sea/peces.jpg" style="--i: -2; --j: 4" />
+        </div>
+        <div class="imgBx">
+          <img src="src/assets/img/sea/medusas.jpg" style="--i: 2; --j: 0" />
+          <img src="src/assets/img/sea/medusas.jpg" style="--i: 1; --j: 1" />
+          <img src="src/assets/img/sea/medusas.jpg" style="--i: 0; --j: 2" />
+          <img src="src/assets/img/sea/medusas.jpg" style="--i: -1; --j: 3" />
+          <img src="src/assets/img/sea/medusas.jpg" style="--i: -2; --j: 4" />
+        </div>
+      </div>
+    </section>
+    <script src="src/main.js"></script>
+    <!--
+      script parallax efect
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+    <script>
+
+      gsap.to("#bg", {
+        scrollTrigger: {
+          scrub: 1,
+        },
+        scale: 1.5,
+      });
+
+      gsap.to("#man", {
+        scrollTrigger: {
+          scrub: 1,
+        },
+        scale: 0.5,
+        y: 100
+      });
+
+      gsap.to("#mountain_left", {
+        scrollTrigger: {
+          scrub: 1,
+        },
+        x: -500,
+      });
+
+      gsap.to("#mountain_right", {
+        scrollTrigger: {
+          scrub: 1,
+        },
+        x: 500,
+      });
+
+      gsap.to("#clouds_1", {
+        scrollTrigger: {
+          scrub: 1,
+        },
+        x: 200,
+      });
+
+      gsap.to("#clouds_2", {
+        scrollTrigger: {
+          scrub: 1,
+        },
+        x: -200,
+      });
+
+      gsap.to("#text", {
+        scrollTrigger: {
+          scrub: 1,
+        },
+        y: 700,
+      });
+    </script>
+
+    <!--
+      script animeJs
+    -->
+    <script src="src/assets/code-min/anime.min.js"></script>
+    <script>
+      const container = document.querySelector(".container");
+      for (let i = 0; i < 100; i++) {
+        const blocks = document.createElement("div");
+        blocks.classList.add("block");
+        container.appendChild(blocks);
+      }
+
+      function animateBlocks() {
+        anime({
+          targets: ".block",
+          translateX: function () {
+            return anime.random(-700, 700);
+          },
+          translateY: function () {
+            return anime.random(-500, 500);
+          },
+          scale: function () {
+            return anime.random(1, 5);
+          },
+          easing: "linear",
+          duration: 3000,
+          delay: anime.stagger(10),
+          complete: animateBlocks,
+        });
+      }
+
+      animateBlocks();
+    </script>
+  </body>
+</html>
