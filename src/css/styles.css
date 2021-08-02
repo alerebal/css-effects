@@ -98,7 +98,6 @@ h2
 {
     position: absolute;
     font-size: 12em;
-    font-family: var(--ff-caveat);
     text-transform: uppercase;
     left: 20%;
     top: 15%;
